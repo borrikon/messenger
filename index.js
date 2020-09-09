@@ -2,6 +2,7 @@ const express = require('express');
 const app = require('express')();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
+const PORT = process.env.PORT || 3000
 
 app.use(express.static(__dirname, ''));
 
@@ -19,6 +20,6 @@ io.on('connection', (socket)=>{
     })
 })
 
-http.listen(3000, ()=>{
+http.listen(PORT, ()=>{
     console.log('server starts on port 3000')
 });
