@@ -1,0 +1,34 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin: 0 auto;
+}
+.chatContainer{
+    border: 1px solid slateblue;
+    padding: 10px;
+}
+.chatPart{
+    min-height: 300px;
+}
+form{
+    width: 100%;
+    display: flex;
+}
+input{
+    width: 80%;
+    padding: 10px;
+    border: 1px solid slateblue;
+    outline: none;
+}
+button{
+    width: 20%;
+    padding: 10px;
+    border: 1px solid #fff;
+    background: slateblue;
+}
