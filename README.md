@@ -1,4 +1,4 @@
 # messenger
 test messenger
 
-simple mesenger using soket.io express 
+simple mesenger using socket.io, express 
