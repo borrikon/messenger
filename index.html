@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type='text/css' href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700&display=swap" rel="stylesheet">
     <title>Messenger</title>
 </head>
 <body>
@@ -12,11 +13,19 @@
             <div class="chatPart">
 
             </div>
-            <form>
-                <input />
+            <form class="chatForm">
+                <input class="chatInput" />
                 <button type='submit'>Send</button>
             </form>
         </div>
+    </div>
+    <div class="background"></div>
+    <div class="modal">
+        <form class="modalInner">
+            <label for='nickName' >Enter your name</label>
+            <input class="nickName" id='nickName' />
+            <button type='submit' class="btn" >Submit</button>
+        </form>
     </div>
 </body>
 <script src="/socket.io/socket.io.js"></script>

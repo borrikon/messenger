@@ -10,10 +10,11 @@ app.get('/', (req, res)=>{
    res.sendFile(__dirname +  '/index.html')
 });
 
-io.on('connection', (socket)=>{
-    console.log('a user connected')
+io.on('connection', (socket)=>{    
+    // io.emit('connectNew', { connect: true })
+
     socket.on('disconnect', ()=>{
-        console.log('user disconnected')
+
     })
     socket.on('chat message', (msg)=>{
         io.emit('chat message', msg)

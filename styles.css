@@ -2,6 +2,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Syne', sans-serif;
 }
 .container{
     width: 100%;
@@ -11,24 +12,104 @@ body{
 }
 .chatContainer{
     border: 1px solid slateblue;
-    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3),
+                -5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 .chatPart{
     min-height: 300px;
+    font-size: 18px;
+    padding: 10px;
 }
 form{
     width: 100%;
     display: flex;
+    justify-content: space-between;
 }
 input{
     width: 80%;
     padding: 10px;
     border: 1px solid slateblue;
+    border-radius: 5px;
     outline: none;
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3),
+                -2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.message{
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    width: fit-content;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+}
+.message:nth-of-type(odd){
+    background: rgba(0, 0, 0, 0.3);
 }
 button{
-    width: 20%;
+    width: 15%;
     padding: 10px;
     border: 1px solid #fff;
     background: slateblue;
+    border-radius: 5px;
+    font-family: 'Syne', sans-serif;
+    font-size: 20px;
+}
+button:hover{
+    cursor: pointer;
+}
+
+.background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+.modal{
+    position: absolute;
+    top: 60px;
+    left: calc(50% - 150px);
+    z-index: 10;
+    display: flex;
+    width: 300px;
+    justify-content: center;
+    padding: 40px;
+    margin: 60px auto;
+    border: 1px solid slateblue;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3),
+                -5px 5px 5px rgba(0, 0, 0, 0.3);
+}
+.modalInner{
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    align-items: center;
+}
+.modalInner label{
+    font-size: 25px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.modalInner .btn{
+    margin-top: 10px;
+    min-width: 150px;
+}
+.greeting{
+    margin: 0 auto;
+    color: slateblue;
+    font-size: 22px;
+}
+.name{
+    color: slateblue;
+    font-weight: 700;
+    font-size: 12px;
+    margin-right: 10px;
 }
