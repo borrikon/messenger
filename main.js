@@ -38,6 +38,12 @@ socket.on('new user connected', (name)=>{
     message.textContent = `New user connected. Say hello to: ${name}`
 })
 
+socket.on('user was disconected', (name)=>{
+    let message = chat.appendChild(document.createElement('div'))
+    message.classList.add('greeting')
+    message.textContent = `User ${name} left chat`
+    console.log('work')
+})
 
 socket.on('chat message', function(msg, name){
     let message = chat.appendChild(document.createElement('div'))

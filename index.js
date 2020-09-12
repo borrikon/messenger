@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = require('express')();
 const http = require('http').createServer(app);
@@ -22,7 +21,9 @@ io.on('connection', (socket)=>{
     })
 
     socket.on('disconnect', ()=>{
-
+        let user = users.filter(item=>item.id === socket.id)
+        users = users.filter(item => item.id !== socket.id)
+        socket.broadcast.emit('user was disconected', user[0].name)
     })
     socket.on('chat message', (msg, name)=>{
         io.emit('chat message', msg, name)
