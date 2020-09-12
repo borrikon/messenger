@@ -26,6 +26,7 @@ function modalFormSubmited(e){
 
     if(nickInput.value){
         nickName = nickInput.value
+        socket.emit('new user', nickName)
     }  
 
     closeModal()
@@ -40,9 +41,9 @@ socket.on('chat message', function(msg){
     let message = chat.appendChild(document.createElement('div'))
     message.classList.add('message')
     message.textContent = msg
-    let name = message.appendChild(document.createElement('div'))
-    name.classList.add('name')
-    name.textContent = `${nickName}:`
+    // let name = message.appendChild(document.createElement('div'))
+    // name.classList.add('name')
+    // name.textContent = `${nickName}:`
 })
 
 
