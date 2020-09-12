@@ -4,7 +4,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const PORT = process.env.PORT || 3000
 
-let users = []
+let users = [{name: 'anonim', id: '1235678'}]
 
 app.use(express.static(__dirname, ''));
 
@@ -22,8 +22,8 @@ io.on('connection', (socket)=>{
 
     socket.on('disconnect', ()=>{
         let user = users.filter(item=>item.id === socket.id)
+        socket.broadcast.emit('user was disconected', user[0].name)
         users = users.filter(item => item.id !== socket.id)
-        socket.broadcast.emit('user was disconected', user[0].name = 'anonim')
     })
     socket.on('chat message', (msg, name)=>{
         io.emit('chat message', msg, name)
