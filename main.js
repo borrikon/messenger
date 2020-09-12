@@ -30,11 +30,13 @@ function modalFormSubmited(e){
     }  
 
     closeModal()
+}
 
+socket.on('new user connected', (name)=>{
     let message = chat.appendChild(document.createElement('div'))
     message.classList.add('greeting')
-    message.textContent = `New user connected. Say hello to: ${nickName}`
-}
+    message.textContent = `New user connected. Say hello to: ${name}`
+})
 
 
 socket.on('chat message', function(msg){
