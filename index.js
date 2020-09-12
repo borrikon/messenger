@@ -13,6 +13,10 @@ app.get('/', (req, res)=>{
 
 io.on('connection', (socket)=>{    
 
+    socket.on('new user', (name)=>{
+        socket.broadcast.emit('new user connected', name);
+    })
+
     socket.on('disconnect', ()=>{
 
     })
@@ -21,9 +25,6 @@ io.on('connection', (socket)=>{
     })
 })
 
-io.on('new user ', (name)=>{
-    socket.broadcast.emit('new user connected', name);
-})
 
 http.listen(PORT, ()=>{
     console.log('server starts on port 3000')
