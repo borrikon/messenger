@@ -17,7 +17,7 @@ function closeModal(){
 
 function formSubmitHandler(e){
     e.preventDefault()
-    socket.emit('chat message', input.value)
+    socket.emit('chat message', input.value, nickName)
     input.value = ''
 }
 
@@ -39,13 +39,13 @@ socket.on('new user connected', (name)=>{
 })
 
 
-socket.on('chat message', function(msg){
+socket.on('chat message', function(msg, name){
     let message = chat.appendChild(document.createElement('div'))
     message.classList.add('message')
     message.textContent = msg
-    // let name = message.appendChild(document.createElement('div'))
-    // name.classList.add('name')
-    // name.textContent = `${nickName}:`
+    let userName = message.appendChild(document.createElement('div'))
+    userName.classList.add('name')
+    userName.textContent = `${name}:`
 })
 
 

@@ -5,6 +5,8 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const PORT = process.env.PORT || 3000
 
+let users = []
+
 app.use(express.static(__dirname, ''));
 
 app.get('/', (req, res)=>{
@@ -15,13 +17,15 @@ io.on('connection', (socket)=>{
 
     socket.on('new user', (name)=>{
         socket.broadcast.emit('new user connected', name);
+        let id = socket.id
+        users.push({name, id})
     })
 
     socket.on('disconnect', ()=>{
 
     })
-    socket.on('chat message', (msg)=>{
-        io.emit('chat message', msg)
+    socket.on('chat message', (msg, name)=>{
+        io.emit('chat message', msg, name)
     })
 })
 
