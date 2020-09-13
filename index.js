@@ -22,6 +22,9 @@ io.on('connection', (socket)=>{
 
     socket.on('disconnect', ()=>{
         let user = users.filter(item=>item.id === socket.id)
+        if(!user[0]){
+            user[0] = {name: 'anonim', id: '1235678'}
+        }
         socket.broadcast.emit('user was disconected', user[0].name)
         users = users.filter(item => item.id !== socket.id)
     })
